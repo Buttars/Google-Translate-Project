@@ -8,7 +8,6 @@ $(document).ready(function () {
     });
     var key = "AIzaSyCrZ3d82w_Xhry-6YwOb1J-pdRnZxFubYA";
     var dest = "https://translation.googleapis.com/language/translate/v2?key=" + key;
-    var txt = [];
 
     function queryTranslate(text, source, target, callback) {
         var message = {
@@ -17,17 +16,18 @@ $(document).ready(function () {
             'target': target,
             'format': 'text'
         }
-
+        $.ajaxSetup({ async: false });
         $.post(dest, message, function (msg) {
             callback(msg.data.translations[0].translatedText);
         });
-
-        return translate;
     }
 
     $('.translate-submit').click(function () {
-        var text = document.getElementById("translate-input").value;
+        var txt = [];
+        var txtreversed = [];
+        var input = document.getElementById("translate-input").value;
         var source = "en";
+        var sourcename = "English";
         var lang = {
             "name": [
                 "Afrikaans",
@@ -144,12 +144,13 @@ $(document).ready(function () {
                 "az",
                 "eu",
                 "be",
+                "bn",
                 "bs",
                 "bg",
                 "ca",
                 "ceb",
-                "zh-CN ",
-                "zh-TW ",
+                "zh-CN",
+                "zh-TW",
                 "co",
                 "hr",
                 "cs",
@@ -165,6 +166,7 @@ $(document).ready(function () {
                 "ka",
                 "de",
                 "el",
+                "gu",
                 "ht",
                 "ha",
                 "haw",
@@ -181,6 +183,7 @@ $(document).ready(function () {
                 "jw",
                 "kn",
                 "kk",
+                "km",
                 "ko",
                 "ku",
                 "ky",
@@ -243,12 +246,28 @@ $(document).ready(function () {
         lang.code.splice(lang.code.indexOf(source), 1);
         lang.code.unshift(source);
 
-        txt.unshift(text);
+        lang.name.splice(lang.code.indexOf(source), 1);
+        lang.name.unshift(sourcename);
 
-        for (var i = 0; i < lang.code.length; i++) {
-            queryTranslate(txt, source, lang.code[i + 1], function (response) { text.push(response); });
+        txt.unshift(input);
+
+        for (var i = 0; i < lang.code.length - 1; i++) {
+            queryTranslate(txt[i], lang.code[i], lang.code[i + 1],
+                function (response) {
+                    txt.push(response);
+                    document.getElementById('translation-list').innerHTML += "<li>" + lang.name[i + 1] + ": " + response + "</li>";
+                });
+        }
+        for (var i = lang.code.length - 1; i > 0; i--) {
+            queryTranslate(txt[i], lang.code[i], lang.code[i - 1],
+                function (response) {
+                    txtreversed.push(response);
+                    document.getElementById('translation-list-reversed').innerHTML += "<li>" + lang.name[i - 1] + ": " + response + "</li>";
+                });
         }
 
-        console.log(txt);
+        document.getElementById('translate-output').value = txtreversed[txtreversed.length - 1]; // Set translate-output to the reversed output
+
+        $.ajaxSetup({ async: true }); // Turn async back on
     });
 });

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap Starter Project</title>
+    <title>Google Translate Project</title>
 
     <link href="dist/css/style.css" rel="stylesheet">
 
@@ -27,31 +27,36 @@
 
         <div class="row">
             <div class="col-sm-8">
-                <div>
-                    <h2>Purpose</h2>
 
-                    <p>
-                        This webpage is meant to poke fun at Google Translate. It takes user input, runs it through all the avaliable languages on
-                        Google Translate and back.
-                    </p>
+                <h2>Purpose</h2>
+
+                <p>
+                    This webpage is meant to poke fun at Google Translate. It takes user input, runs it through all the avaliable languages on
+                    Google Translate and back.
+                </p>
+
+                <hr>
+            </div>
+            <div class="col-md-6">
+                <h2>Translate</h2>
+
+                <textarea id="translate-input" autofocus rows="4" cols="50">test</textarea>
+                <div>
+                    <a class="btn btn-success translate-submit">Translate</a>
                 </div>
+                <h3>Final Output</h3>
 
+                <textarea id="translate-output" readonly autofocus rows="4" cols="50"></textarea>
+            </div>
+            <div class="col-md-6">
+                <h3>Translations</h3>
                 <div>
-                    <h2>Translate</h2>
-
-                    <textarea id="translate-input" autofocus rows="4" cols="50">test</textarea>
-                    <div>
-                        <a class="btn btn-success translate-submit">Translate</a>
-                    </div>
-                    <h3>Final Output</h3>
-
-                    <textarea id="translate-output" readonly autofocus rows="4" cols="50"></textarea>
-
-                    <ol id="translation-area"></ol>
+                    <ol id="translation-list"></ol>
+                    <ol id="translation-list-reversed" reversed></ol>
                 </div>
             </div>
-
         </div>
+
     </div>
 
     <hr>
