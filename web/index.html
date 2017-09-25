@@ -21,12 +21,14 @@
 <body>
 
     <div class="container my-container">
-        <div class="page-header">
-            <h3>Google Translate Project</h3>
+        <div class="row">
+            <div class="page-header">
+                <h3>Google Translate Project</h3>
+            </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col col-sm-8">
 
                 <h2>Purpose</h2>
 
@@ -37,26 +39,35 @@
 
                 <hr>
             </div>
-            <div class="col-md-6">
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
                 <h2>Translate</h2>
 
                 <textarea id="translate-input" autofocus rows="4" cols="50">test</textarea>
                 <div>
-                    <a class="btn btn-success translate-submit">Translate</a>
+                    <a tabindex="0" type="button" class="btn btn-success translate-submit" role="button" data-toggle="popover" data-trigger="focus"
+                        title="Translating" data-content="This may take a second.">Translate</a>
                 </div>
+
+                <br>
+
                 <h3>Final Output</h3>
 
                 <textarea id="translate-output" readonly autofocus rows="4" cols="50"></textarea>
             </div>
-            <div class="col-md-6">
+
+            <div class="col-sm-4">
                 <h3>Translations</h3>
-                <div>
+                <div class="col-sm-6">
                     <ol id="translation-list"></ol>
+                </div>
+                <div class="col-sm-6">
                     <ol id="translation-list-reversed" reversed></ol>
                 </div>
             </div>
         </div>
-
     </div>
 
     <hr>

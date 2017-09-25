@@ -2,10 +2,18 @@ $(document).ready(function () {
     /**
      * Just show an alert for some example JS
      */
+
+    $(document).resize($('progress').width($('#translate-input').width()));
+
     $('.test-button').click(function () {
         alert('Whey hey!');
         return false;
     });
+
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+
     var key = "AIzaSyCrZ3d82w_Xhry-6YwOb1J-pdRnZxFubYA";
     var dest = "https://translation.googleapis.com/language/translate/v2?key=" + key;
 
