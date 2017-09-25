@@ -2,17 +2,21 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Google Translate Project</title>
+  <title>Google Translate Project</title>
 
-    <link href="dist/css/style.css" rel="stylesheet">
+  <link href="dist/css/style.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <style>
+    @import url(//fonts.googleapis.com/earlyaccess/notosansmalayalam.css);
+  </style>/
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -20,64 +24,64 @@
 
 <body>
 
-    <div class="container my-container">
-        <div class="row">
-            <div class="page-header">
-                <h3>Google Translate Project</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col col-sm-8">
-
-                <h2>Purpose</h2>
-
-                <p>
-                    This webpage is meant to poke fun at Google Translate. It takes user input, runs it through all the avaliable languages on
-                    Google Translate and back.
-                </p>
-
-                <hr>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-6">
-                <h2>Translate</h2>
-
-                <textarea id="translate-input" autofocus rows="4" cols="50">test</textarea>
-                <div>
-                    <a tabindex="0" type="button" class="btn btn-success translate-submit" role="button" data-toggle="popover" data-trigger="focus"
-                        title="Translating" data-content="This may take a second.">Translate</a>
-                </div>
-
-                <br>
-
-                <h3>Final Output</h3>
-
-                <textarea id="translate-output" readonly autofocus rows="4" cols="50"></textarea>
-            </div>
-
-            <div class="col-sm-4">
-                <h3>Translations</h3>
-                <div class="col-sm-6">
-                    <ol id="translation-list"></ol>
-                </div>
-                <div class="col-sm-6">
-                    <ol id="translation-list-reversed" reversed></ol>
-                </div>
-            </div>
-        </div>
+  <div class="container-fluid my-container">
+    <div class="row">
+      <div class="page-header">
+        <h3>Google Translate Project</h3>
+      </div>
     </div>
 
-    <hr>
+    <div class="row">
+      <div class="col col-sm-8">
 
-    <div class="footer">
-        <p>&copy; Landon Buttars 2017</p>
-    </div>
+        <h2>Purpose</h2>
+
+        <p>
+          This webpage is meant to poke fun at Google Translate. It takes user input, runs it through all the avaliable languages on
+          Google Translate and back.
+        </p>
+
+        <hr>
+      </div>
     </div>
 
-    <script src="dist/js/script.js"></script>
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Translate</h2>
+
+        <textarea id="translate-input" autofocus rows="4" cols="50"></textarea>
+        <div>
+          <a tabindex="0" type="button" class="btn btn-success translate-submit" role="button" data-toggle="popover" data-trigger="focus"
+            title="Translating" data-content="This may take a second.">Translate</a>
+        </div>
+
+        <br>
+
+        <h3>Final Output</h3>
+
+        <textarea id="translate-output" readonly autofocus rows="4" cols="50"></textarea>
+      </div>
+
+      <div class="col-sm-6">
+        <h3>Translations</h3>
+        <div class="col-sm-6">
+          <ol class="list-group" id="translation-list"></ol>
+        </div>
+        <div class="col-sm-6">
+          <ol class="list-group" id="translation-list-reversed" reversed></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="footer">
+    <p>&copy; Landon Buttars 2017</p>
+  </div>
+
+
+  <script src="dist/js/script.js"></script>
 </body>
 
 </html>
